@@ -1,7 +1,7 @@
 library ieee;
-use ieee.std_logic_1164.all;  -- std_logic ve std_logic_vector'ü kullanbilmek için std_logic_1164 paketini ekleriz
+use ieee.std_logic_1164.all;  -- std_logic ve std_logic_vector'Ã¼ kullanbilmek iÃ§in std_logic_1164 paketini ekleriz
 
-entity tb_32bit_lfsr is -- boþ entity
+entity tb_32bit_lfsr is -- boÅŸ entity
 end tb_32bit_lfsr;
 
 architecture Behavioral of tb_32bit_lfsr is
@@ -18,18 +18,18 @@ output      : out std_logic_vector(31 downto 0)
 
 end component;
 
-signal clk         : std_logic; -- componentin içerisindeki giriþ ve çýkýþlarla ayný isimde sinyaller oluþtururuz
+signal clk         : std_logic; -- componentin iÃ§erisindeki giriÅŸ ve Ã§Ä±kÄ±ÅŸlarla aynÄ± isimde sinyaller oluÅŸtururuz
 signal rst         : std_logic;
 signal output      : std_logic_vector(31 downto 0);
 
 
-constant clock_period : time :=2ps; -- saatimiz bir  periyodunu 2ps'de tamamlar
+constant clock_period : time :=10ns; -- saatimiz bir  periyodunu 10ns'de tamamlar
 
 
 begin
 
 
-clock_process: process begin -- clk 1ps '1' olarak, 1ps '0' olacak þekide ayarlandý
+clock_process: process begin -- clk 5ns '1' olarak, 5ns '0' olacak ÅŸekide ayarlandÄ±
 
 clk<='1';
 wait for clock_period/2;
@@ -42,16 +42,16 @@ end process;
 
 uut: design_32bit_lfsr port map(
 
-clk   =>clk   ,-- giriþ çýkýþ deðerlerini ayný isimde oluþturduðmuz sinyallere atarýz
+clk   =>clk   ,-- giriÅŸ Ã§Ä±kÄ±ÅŸ deÄŸerlerini aynÄ± isimde oluÅŸturduÄŸmuz sinyallere atarÄ±z
 rst   =>rst   ,
 output=>output
 
 );
 
 
-reset_process : process begin -- rst 1ps '1' olduktan sonra devamlý olarak '0' deðerini alýr 
+reset_process : process begin -- rst 5ps '1' olduktan sonra devamlÄ± olarak '0' deÄŸerini alÄ±r 
 
-rst<='1';   -- rst'in 1'e eþit olamasý sayesinde mevcut_durum "10101100011010111010000111101001" olarak ilklendirilebilidi
+rst<='1';   -- rst'in 1'e eÅŸit olamasÄ± sayesinde mevcut_durum "10101100011010111010000111101001" olarak ilklendirilebilidi
 wait for clock_period/2;
 
 
