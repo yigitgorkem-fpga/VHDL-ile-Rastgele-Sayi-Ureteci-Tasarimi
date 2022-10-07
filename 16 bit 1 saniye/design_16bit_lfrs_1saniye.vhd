@@ -20,7 +20,7 @@ begin
                
         if(sayac>=clk_frequency) then
               
-              output <= mevcut_durum; -- (3) mevcut durumu çıkışa atıyoruz, mevcut durum rising edge olmadıkça sabiittir yani outpu sadece rising edge olan durumlarda değişir.
+              output <= mevcut_durum; -- (3) mevcut durumu çıkışa atıyoruz, mevcut durum rising edge olmadıkça sabiittir yani output sadece rising edge olan durumlarda değişir.
               sayac<=0;
         else 
         
