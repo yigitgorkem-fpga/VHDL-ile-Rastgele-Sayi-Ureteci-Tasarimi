@@ -20,17 +20,17 @@ process (Clk,Rst)
     if (Rst = '1') then
       mevcut_durum <= "1011100111011001";
     elsif (rising_edge(clk)) then
-      mevcut_durum <= sonraki_durum;-- (2)sonraki durumu mevcut duruma atýyoruz
+      mevcut_durum <= sonraki_durum;-- (2)sonraki durumu mevcut duruma arÄ±yoruz
     end if;
   end process;
   
   xorCiktisi <= mevcut_durum(15) XOR mevcut_durum(13) XOR mevcut_durum(12) XOR mevcut_durum(10); 
-  sonraki_durum <= mevcut_durum(14 downto 0) & xorCiktisi; -- (1)mevcut durumu concatenate edip sonraki duruma atýyoruz
+  sonraki_durum <= mevcut_durum(14 downto 0) & xorCiktisi; -- (1)mevcut durumu concatenate edip sonraki duruma atÄ±yoruz
   
   process(clk) begin
   
   
-  output <= mevcut_durum; -- (3) mevcut durumu çýkýþa atýyoruz, mevcut durum rising edge olmadýkça sabiittir yani outpu sadece rising edge olan durumlarda deðiþir.
+  output <= mevcut_durum; -- (3) mevcut durumu Ã§Ä±kÄ±ÅŸa atÄ±yoruz, mevcut durum rising edge olmadÄ±kÃ§a sabittir yani output sadece rising edge olan durumlarda deÄŸiÅŸir.
 
 
   end process;
